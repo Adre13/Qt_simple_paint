@@ -31,12 +31,12 @@ bool paint_form::openImage(const QString &fileName)
     return true;
 }
 
-void paint_form::saveImage(const QString &fileName, const char *fileFormat)
+void paint_form::saveImage(const QString &fileName)
 {
     QImage visibleImage = image;
     resizeImage(&visibleImage, size());
 
-    visibleImage.save(fileName, fileFormat);
+    visibleImage.save(fileName);
 }
 
 void paint_form::setPenWidth(int newWidth)

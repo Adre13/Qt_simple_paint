@@ -36,8 +36,6 @@ private:
     paint_form* paintArea;
     QList<QAction *> saveAsActs;
 
-    bool saveFile(const QByteArray &fileFormat);
-
 };
 
 #endif // MAINWINDOW_H

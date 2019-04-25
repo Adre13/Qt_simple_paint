@@ -17,7 +17,7 @@ public:
     ~paint_form() override;
 
     bool openImage(const QString &fileName);
-    void saveImage(const QString& fileName, const char* fileFormat);
+    void saveImage(const QString& fileName);
     void setPenWidth(int newWidth);
     void setPenColor(const QColor& newColor);
     int penWidth() const {return myPenWidth;}

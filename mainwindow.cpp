@@ -31,27 +31,11 @@ void MainWindow::on_actionopen_triggered()
 
 void MainWindow::on_actionsave_triggered()
 {
-    QAction *action = qobject_cast<QAction *>(sender());
-    QByteArray fileFormat = action->data().toByteArray();
-
-    saveFile(fileFormat);
-}
-
-bool MainWindow::saveFile(const QByteArray &fileFormat)
-{
-
     QString initialPath = QDir::currentPath() + "/untitled.jpg";
 
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save As"), initialPath);
 
-    if(fileName.isEmpty())
-    {
-        return false;
-    }else
-    {
-        paintArea->saveImage(fileName, fileFormat.constData());
-        return true;
-    }
+    paintArea->saveImage(fileName);
 }
 
 void MainWindow::on_actionpenWidth_triggered()
