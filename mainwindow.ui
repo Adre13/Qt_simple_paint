@@ -49,8 +49,7 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionclearImage"/>
-   <addaction name="actionPenColor"/>
-   <addaction name="actionpenWidth"/>
+   <addaction name="actionrectangle"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionopen">
@@ -76,6 +75,14 @@
   <action name="actionclearImage">
    <property name="text">
     <string>clearImage</string>
+   </property>
+  </action>
+  <action name="actionrectangle">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>rectangle</string>
    </property>
   </action>
  </widget>

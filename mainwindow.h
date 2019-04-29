@@ -17,7 +17,7 @@ public:
     ~MainWindow();
 
 protected:
-    void closeEvent(QCloseEvent* event) override;
+    //void closeEvent(QCloseEvent* event) override;// for future - create check before close
 
 private slots:
     void on_actionopen_triggered();
@@ -30,11 +30,13 @@ private slots:
 
     void on_actionclearImage_triggered();
 
+    void on_actionrectangle_triggered();
+
 private:
     Ui::MainWindow *ui;
 
     paint_form* paintArea;
-    QList<QAction *> saveAsActs;
+    //QList<QAction *> saveAsActs;
 
 };
 

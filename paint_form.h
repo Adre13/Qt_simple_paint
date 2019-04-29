@@ -22,7 +22,7 @@ public:
     void setPenColor(const QColor& newColor);
     int penWidth() const {return myPenWidth;}
     QColor penColor() const {return myPenColor;}
-
+    void rect_clicked();
     void clearImage();
 
 
@@ -46,7 +46,8 @@ private:
     QColor myPenColor;
     QImage image;
     QPoint lastPoint;
-    bool scribbling;
+    QRect rectangle;
+    bool scribbling, rect_is_checked;
 
     void resizeImage(QImage *image, const QSize &newSize);
     void drawLineTo(const QPoint& endPoint);

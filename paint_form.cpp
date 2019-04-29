@@ -8,6 +8,7 @@ paint_form::paint_form(QWidget *parent) :
     setAttribute(Qt::WA_StaticContents);
 
     scribbling = false;
+    rect_is_checked = false;
     myPenWidth = 1;
     myPenColor = Qt::black;
 }
@@ -49,6 +50,17 @@ void paint_form::setPenColor(const QColor &newColor)
     myPenColor = newColor;
 }
 
+void paint_form::rect_clicked()
+{
+    if(rect_is_checked)
+    {
+        rect_is_checked = false;
+    }else
+    {
+        rect_is_checked = true;
+    }
+}
+
 void paint_form::clearImage()
 {
     image.fill(qRgb(255, 255, 255));
@@ -60,21 +72,41 @@ void paint_form::mousePressEvent(QMouseEvent *event)
     if(event->button() == Qt::LeftButton)
     {
         lastPoint = event->pos();
+        rectangle.setTopLeft(event->pos());
+        rectangle.setBottomRight(event->pos());
         scribbling = true;
     }
 }
 
 void paint_form::mouseMoveEvent(QMouseEvent *event)
 {
-    if((event->buttons() & Qt::LeftButton) && scribbling)
-        drawLineTo(event->pos());
+    if((event->type() == QEvent::MouseMove) && scribbling)
+    {
+        if(!rect_is_checked)
+        {
+            drawLineTo(event->pos());
+        }else
+        {
+            rectangle.setBottomRight(event->pos());
+            //drawLineTo(rectangle.bottomRight());
+            update();
+        }
+    }
 }
 
 void paint_form::mouseReleaseEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton && scribbling)
     {
-        drawLineTo(event->pos());
+        if(!rect_is_checked)
+        {
+            drawLineTo(event->pos());
+        }else
+        {
+            rectangle.setBottomRight(event->pos());
+            drawLineTo(rectangle.bottomRight());
+            update();
+        }
         scribbling = false;
     }
 }
@@ -119,10 +151,14 @@ void paint_form::drawLineTo(const QPoint &endPoint)
 
     painter.setPen(QPen(myPenColor, myPenWidth, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
 
-    painter.drawLine(lastPoint, endPoint);
-
-    int rad = (myPenWidth / 2) + 2;
-    update(QRect(lastPoint, endPoint).normalized().adjusted(-rad, -rad, +rad, +rad));
-
-    lastPoint = endPoint;
+    if(!rect_is_checked)
+    {
+        painter.drawLine(lastPoint, endPoint);
+        int rad = (myPenWidth / 2) + 2;
+        update(QRect(lastPoint, endPoint).normalized().adjusted(-rad, -rad, +rad, +rad));
+        lastPoint = endPoint;
+    }else
+    {
+        painter.drawRect(rectangle);
+    }
 }

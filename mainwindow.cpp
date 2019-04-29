@@ -61,3 +61,8 @@ void MainWindow::on_actionclearImage_triggered()
 {
     paintArea->clearImage();
 }
+
+void MainWindow::on_actionrectangle_triggered()
+{
+    paintArea->rect_clicked();
+}
