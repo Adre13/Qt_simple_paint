@@ -9,16 +9,12 @@ MainWindow::MainWindow(QWidget *parent) :
     paintArea = new paint_form(this);
     setCentralWidget(paintArea);
 
+
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-void MainWindow::closeEvent(QCloseEvent *event)
-{
-    event->accept();
 }
 
 void MainWindow::on_actionopen_triggered()

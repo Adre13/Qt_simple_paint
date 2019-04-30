@@ -6,11 +6,11 @@ paint_form::paint_form(QWidget *parent) :
     QWidget(parent)
 {
     setAttribute(Qt::WA_StaticContents);
-
     scribbling = false;
     rect_is_checked = false;
     myPenWidth = 1;
     myPenColor = Qt::black;
+
 }
 
 paint_form::~paint_form()
@@ -115,9 +115,14 @@ void paint_form::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
 
-    QRect dirtyRect = event->rect();
 
-    painter.drawImage(dirtyRect, image, dirtyRect);
+        QRect dirtyRect = event->rect();
+        painter.drawImage(dirtyRect, image, dirtyRect);
+//    }else
+//    {
+        if(rect_is_checked)
+        painter.drawRect(rectangle);
+//    }
 }
 
 void paint_form::resizeEvent(QResizeEvent *event)

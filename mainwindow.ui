@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>584</width>
+    <height>327</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>584</width>
      <height>19</height>
     </rect>
    </property>
@@ -52,6 +52,23 @@
    <addaction name="actionrectangle"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="minimumSize">
+    <size>
+     <width>25</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>LeftToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>true</bool>
+   </attribute>
+  </widget>
   <action name="actionopen">
    <property name="text">
     <string>open</string>
