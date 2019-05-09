@@ -50,6 +50,8 @@
    </attribute>
    <addaction name="actionclearImage"/>
    <addaction name="actionrectangle"/>
+   <addaction name="actionline"/>
+   <addaction name="actionellipse"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <widget class="QToolBar" name="toolBar">
@@ -66,7 +68,7 @@
     <enum>LeftToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
-    <bool>true</bool>
+    <bool>false</bool>
    </attribute>
   </widget>
   <action name="actionopen">
@@ -100,6 +102,22 @@
    </property>
    <property name="text">
     <string>rectangle</string>
+   </property>
+  </action>
+  <action name="actionline">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>line</string>
+   </property>
+  </action>
+  <action name="actionellipse">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>ellipse</string>
    </property>
   </action>
  </widget>

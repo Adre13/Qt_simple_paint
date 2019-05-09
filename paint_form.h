@@ -23,6 +23,8 @@ public:
     int penWidth() const {return myPenWidth;}
     QColor penColor() const {return myPenColor;}
     void rect_clicked();
+    void line_clicked();
+    void ellipse_clicked();
     void clearImage();
 
 
@@ -45,9 +47,11 @@ private:
     int myPenWidth;
     QColor myPenColor;
     QImage image;
-    QPoint lastPoint;
+    QPoint lastPoint, startPoint, endPoint;
     QRect rectangle;
-    bool scribbling, rect_is_checked;
+    QLine line;
+
+    bool scribbling, rect_is_checked, line_is_checked, ellipse_is_checked;
 
     void resizeImage(QImage *image, const QSize &newSize);
     void drawLineTo(const QPoint& endPoint);

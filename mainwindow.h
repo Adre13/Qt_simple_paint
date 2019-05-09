@@ -32,6 +32,10 @@ private slots:
 
     void on_actionrectangle_triggered();
 
+    void on_actionellipse_triggered();
+
+    void on_actionline_triggered();
+
 private:
     Ui::MainWindow *ui;
 

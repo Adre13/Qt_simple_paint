@@ -62,3 +62,13 @@ void MainWindow::on_actionrectangle_triggered()
 {
     paintArea->rect_clicked();
 }
+
+void MainWindow::on_actionellipse_triggered()
+{
+    paintArea->ellipse_clicked();
+}
+
+void MainWindow::on_actionline_triggered()
+{
+    paintArea->line_clicked();
+}
